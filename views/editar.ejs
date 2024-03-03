@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Contacto</title>
+    <link rel="icon" type="image/png" href="img/logo.png"/>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main class="editar-contacto">
+        <h1>Editar Contacto</h1>
+        <form action="/actualizar/<%= contacto._id %>" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="<%= contacto.nombre %>"><br>
+
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" value="<%= contacto.correo %>"><br>
+
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" value="<%= contacto.numero %>"><br>
+
+            <label for="nombreempresa">Nombre de Empresa:</label>
+            <input type="text" id="nombreempresa" name="nombreempresa" value="<%= contacto.nombreempresa %>"><br>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje"><%= contacto.mensaje %></textarea><br>
+
+            <button type="submit">Actualizar</button>
+        </form>
+    </main>
+</body>
+</html>

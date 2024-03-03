@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="img/logo.png"/>
+</head>
+<body>
+    <header class="encabezado">
+        <a href="/vistadatos"><img src="img/clientes.png" alt=""></a>
+        <h1>Dashboard</h1>
+        <a href="/logout"><img src="img/salir.png" alt=""></a>
+    </header>
+    <div class="login">
+        <table>
+            <thead>
+                <tr>
+                    <!-- <th>ID</th> -->
+                    <th>Nombre de Usuario</th>
+                    <th>Privilegios</th>
+                    <th>Autorizacion</th>
+                    <th>Acciones</th>
+                </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <!-- <td><%= user._id %></td> -->
+                    <td><%= user.username %></td>
+                    <td><%= user.privilegios %></td>
+                    <td><%= user.autorizacion %></td>
+                    <td>
+                        <form action="/users/<%= user._id %>/edit" method="GET" style="display: inline;">
+                            <button type="submit">Editar</button>
+                        </form>
+                        <form action="/users/<%= user._id %>/delete" method="POST" style="display: inline;">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </body>
+</html>

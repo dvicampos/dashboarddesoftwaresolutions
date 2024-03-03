@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SOFTWARE ED</title>
+    <link rel="icon" type="image/png" href="img/logo.png"/>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+    <body>
+        <header class="encabezado">
+            <a href="/users"><img src="img/usuario.png" alt=""></a>
+            <h1>Dashboard</h1>
+            <a href="/logout"><img src="img/salir.png" alt=""></a>
+        </header>
+        <main class="dashboard">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>correo</th>
+                        <th>Numero</th>
+                        <th>Nombre de empresa</th>
+                        <th>Mensaje</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% contactos.forEach(function(contacto) { %>
+                    <tr>
+                        <td>
+                            <%= contacto.nombre %>
+                        </td>
+                        <td>
+                            <%= contacto.correo %>
+                        </td>
+                        <td>
+                            <%= contacto.numero %>
+                        </td>
+                        <td>
+                            <%= contacto.nombreempresa %>
+                        </td>
+                        <td>
+                            <%= contacto.mensaje %>
+                        </td>
+                        
+                        <td>
+                            <a class="editar" href="/editar/<%= contacto._id %>">
+                                <img class="imagen-icon" src="/img/editar.png" alt="editar">
+                            </a>
+                        </td>
+                        <td>
+                            <a class="eliminar" href="/eliminar/<%= contacto._id %>">
+                                <img class="imagen-icon" src="/img/borrar.png" alt="borrar">
+                            </a>
+                        </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>
